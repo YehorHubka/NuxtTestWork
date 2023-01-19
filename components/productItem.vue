@@ -1,13 +1,13 @@
 <template>
   <div class="product-item">
-    <div class="product-item__image">
+    <div class="product-item__image" @click="toProductCart(id)">
       <img :src="image" :alt="title">
     </div>
-    <div class="product-item__title">
+    <div class="product-item__title" @click="toProductCart(id)">
       {{ title }}
     </div>
     <div class="product-item__price">
-      {{ price }}
+      {{ price }}$
     </div>
     <div class="product-item__text">
       <button
@@ -40,8 +40,10 @@
       }
     },
     methods: {
-
-    }
+      toProductCart(id) {
+        this.$router.push('/catalog/' + id)
+      }
+    },
   }
 </script>
 

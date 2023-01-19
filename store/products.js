@@ -16,5 +16,6 @@ export const actions = {
 }
 
 export const getters = {
-  products: p => p.products
+  products: state => state.products,
+  productsById: state => id => state.products.find(item => item.id === id)
 }

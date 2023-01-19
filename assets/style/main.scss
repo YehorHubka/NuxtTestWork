@@ -78,10 +78,17 @@ p {
   margin:0 15px 30px;
   width: calc(100% / 3 - 30px);
   text-align: center;
+  box-shadow: 0 0 5px 0 rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  &:hover {
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
+    border-color: #ccc;
+  }
   &__image {
     margin-bottom: 10px;
     height: 150px;
     text-align: center;
+    cursor: pointer;
     img {
       max-width: 100%;
       max-height: 100%;
@@ -96,6 +103,11 @@ p {
     overflow: hidden;
     white-space:nowrap;
     margin-bottom: 10px;
+    transition: color 0.3s ease;
+    &:hover {
+      color: $link-color;
+      cursor: pointer;
+    }
   }
   &__price {
     color: $link-color;
@@ -123,9 +135,58 @@ p {
     }
   }
 }
-
-
-
+.product-cart {
+  display: flex;
+  align-items: center;
+  &__image {
+    width: 20%;
+    margin-right: 5%;
+    img {
+      max-width: 100%;
+    }
+  }
+  &__info {
+    width: 75%;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  &__category {
+    margin-bottom: 20px;
+  }
+  &__price {
+    margin-bottom: 20px;
+    b {
+      color: $link-color;
+    }
+  }
+}
+.back-link {
+  color: $link-color;
+  display: inline-block;
+  margin-bottom: 30px;
+  &:hover{
+    color: #000;
+  }
+}
+.product-sort {
+  margin-bottom: 30px;
+  &__title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  &__select {
+    width: 100%;
+    max-width: 200px;
+    height: 40px;
+    padding: 0 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    outline: none;
+  }
+}
 
 @media (max-width: 767px) {
   .navbar {
@@ -141,5 +202,20 @@ p {
   }
   .products-grid {
     margin: 0;
+  }
+  .product-cart {
+    flex-direction: column;
+    justify-items: center;
+    &__image {
+      width: 50%;
+      margin: 0 0 30px;
+    }
+    &__info {
+      width: auto;
+    }
+  }
+  h1 {
+    text-align: center;
+    font-size: 24px;
   }
 }
