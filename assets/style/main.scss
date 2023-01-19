@@ -1,0 +1,145 @@
+@import "mixins";
+@import "colors";
+* {box-sizing: border-box;}
+body {
+  font-family: 'Verdana';
+  margin: 0;
+}
+.main {
+  padding: 50px 0;
+}
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.navbar {
+  padding: 20px 15px;
+  @include justify-items;
+  background: $bg-navbar;
+}
+a {transition: color 0.3s ease;}
+.logo{
+  a {
+    font-weight: bold;
+    font-size: 24px;
+    color: #000;
+    text-decoration: none;
+    &:hover {
+      color: $link-color;
+    }
+  }
+}
+.navigation {
+  display: flex;
+  a {
+    text-decoration: none;
+    color: #000;
+    margin-right: 20px;
+    &:hover {
+      color: $link-color;
+    }
+    &.active {
+      color: $link-color;
+      text-decoration: underline;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+h1 {
+  font-size: 30px;
+  margin: 0 0 30px;
+}
+p {
+  margin: 0 0 20px;
+  font-size: 18px;
+  line-height: 1.5;
+  a {
+    color: $link-color;
+    text-decoration: underline;
+    &:hover {
+      color: #000;
+      text-decoration: none;
+    }
+  }
+}
+.products-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  margin: 0 -15px;
+}
+.product-item {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin:0 15px 30px;
+  width: calc(100% / 3 - 30px);
+  text-align: center;
+  &__image {
+    margin-bottom: 10px;
+    height: 150px;
+    text-align: center;
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+  &__title {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.5;
+    height: 27px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space:nowrap;
+    margin-bottom: 10px;
+  }
+  &__price {
+    color: $link-color;
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  &__text {
+    &-opener {
+      padding: 10px;
+      border: 0;
+      background: $link-color;
+      color: #fff;
+      width: 100%;
+      display: block;
+      cursor: pointer;
+      &.active {
+        background: #000;
+      }
+    }
+    &-wrap {
+      font-size: 14px;
+      line-height: 1.5;
+      margin-top: 10px;
+    }
+  }
+}
+
+
+
+
+@media (max-width: 767px) {
+  .navbar {
+    flex-direction: column;
+    justify-items: center;
+  }
+  .logo {
+    margin-bottom: 15px;
+  }
+  .product-item {
+    margin: 0 0 20px;
+    width: 100%;
+  }
+  .products-grid {
+    margin: 0;
+  }
+}
